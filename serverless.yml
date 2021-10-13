@@ -1,0 +1,57 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: middy-samples
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+
+plugins:
+  - serverless-offline
+
+serverless-offline:
+  httpPort: 4000
+  printOutput: true
+  resourceRoutes: false
+
+functions:
+  addPerson:
+    handler: handler.addPerson
+    events:
+      - http:
+          path: /people
+          method: POST
+          cors: true
+
+  getPeople:
+    handler: handler.getPeople
+    events:
+      - http:
+          path: /people
+          method: GET
+          cors: true
+  
+  getPerson:
+    handler: handler.getPerson
+    events:
+      - http:
+          path: /people/{personId}
+          method: GET
+          cors: true
+          request:
+            parameters:
+              paths:
+                personId: true

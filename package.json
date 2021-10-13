@@ -1,0 +1,15 @@
+{
+  "name": "middy-samples",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@middy/core": "^2.5.2",
+    "@middy/http-json-body-parser": "^2.5.2",
+    "@middy/http-response-serializer": "^2.5.2",
+    "@middy/validator": "^2.5.2",
+    "@types/aws-lambda": "^8.10.84",
+    "serverless-offline": "^8.2.0",
+    "uuidv4": "^6.2.12"
+  }
+}
